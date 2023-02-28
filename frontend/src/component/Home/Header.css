@@ -1,0 +1,22 @@
+.dropdown-container:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu {
+  display: none;
+}
+
+
+.inputBox > span{
+    font-family: "Roboto";
+    animation: sliding 10s linear infinite;
+    display: block;
+}
+@keyframes sliding{
+    0%{
+      transform: translateX(-70%);
+    }
+    100%{
+      transform: translateX(130%);
+    }
+  }
