@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 
 const connectDatabase = () =>{
-    mongoose.connect("mongodb://localhost:27017/Fancykit",{
+    mongoose.connect("mongodb://localhost:27017/Goldstar",{
         useNewUrlParser: true,
         useUnifiedTopology: true,
     }).then((data) =>{
