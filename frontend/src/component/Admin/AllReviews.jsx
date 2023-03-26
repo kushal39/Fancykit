@@ -26,21 +26,32 @@ const AllReviews = ({ history }) => {
     (state) => state.productReviews
   );
 
+  const { products } = useSelector((state) => state.products);
+
+
   const [productId,  setProductId] = useState("");
 
   const deleteReviewHandler = (reviewId) => {
     dispatch(deleteReviews(reviewId, productId));
   };
 
+  const [productName,  setProductName] = useState("");
+
+
   const productReviewsSubmitHandler = (e) => {
     e.preventDefault();
-    dispatch(getAllReviews(productId));
+    dispatch(getAllReviews(productName));
   };
+  const product = products.forEach((item) => {
+    if (item.name === productName) {
+      console.log(item);
+    }
+  });
 
   useEffect(() => {
-    if (productId.length === 24) {
-      dispatch(getAllReviews(productId));
-    }
+    if (productName === product) {
+      dispatch(getAllReviews(productName));
+  }
     if (error) {
       toast.error(error);
       dispatch(clearErrors());
@@ -56,7 +67,7 @@ const AllReviews = ({ history }) => {
       history.push("/admin/reviews");
       dispatch({ type: DELETE_REVIEW_RESET });
     }
-  }, [dispatch, alert, error, deleteError, history, isDeleted, productId]);
+  }, [dispatch, alert, error, deleteError, history, isDeleted, productId, productName]);
 
   const columns = [
     { field: "id", headerName: "Review ID", minWidth: 100, flex: 0.3 },
@@ -142,19 +153,19 @@ const AllReviews = ({ history }) => {
               <Star />
               <input
                 type="text"
-                placeholder="Product Id"
+                placeholder="Product Name"
                 required
-                value={productId}
-                onChange={(e) => setProductId(e.target.value)}
+                value={productName}
+                onChange={(e) => setProductName(e.target.value)}
               />
             </div>
 
             <Button
               id="createProductBtn"
               type="submit"
-              disabled={
-                loading ? true : false || productId === "" ? true : false
-              }
+              // disabled={
+              //   loading ? true : false || productId === "" ? true : false
+              // }
             >
               Search
             </Button>

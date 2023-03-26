@@ -195,11 +195,11 @@ export const updateProduct = (id, productData) => async (dispatch) => {
 
 
 // Get All Reviews of a Product
-export const getAllReviews = (id) => async (dispatch) => {
+export const getAllReviews = (productName) => async (dispatch) => {
   try {
     dispatch({ type: ALL_REVIEW_REQUEST });
 
-    const { data } = await axios.get(`/api/v2/reviews?id=${id}`);
+    const { data } = await axios.get(`/api/v2/reviews?productName=${productName}`);
 
     dispatch({
       type: ALL_REVIEW_SUCCESS,
@@ -212,6 +212,7 @@ export const getAllReviews = (id) => async (dispatch) => {
     });
   }
 };
+
 
 
 

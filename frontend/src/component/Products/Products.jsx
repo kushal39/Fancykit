@@ -4,7 +4,7 @@ import Header from "../Home/Header";
 import { useSelector, useDispatch } from "react-redux";
 import Loading from "../../more/Loader";
 import ProductCard from "./ProductCard";
-import { clearErrors, getProduct } from "../../actions/ProductActions";
+import { getProduct } from "../../actions/ProductActions";
 import Pagination from "react-js-pagination";
 import "./Product.css";
 import Typography from "@material-ui/core/Typography"

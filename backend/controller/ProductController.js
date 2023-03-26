@@ -191,11 +191,13 @@ exports.createProductReview = catchAsyncErrors(async (req, res, next) => {
 });
 
 // Get All reviews of a single product
-exports.getSingleProductReviews = catchAsyncErrors(async (req, res, next) => {
-  const product = await Product.findById(req.query.id);
+exports.getAllReviews = catchAsyncErrors(async (req, res, next) => {
+  const { productName } = req.query;
+
+  const product = await Product.findOne({ name: productName }).select('reviews');
 
   if (!product) {
-    return next(new ErrorHandler("Product is not found with this id", 404));
+    return next(new ErrorHandler('Product is not found with this name', 404));
   }
 
   res.status(200).json({
@@ -203,6 +205,7 @@ exports.getSingleProductReviews = catchAsyncErrors(async (req, res, next) => {
     reviews: product.reviews,
   });
 });
+
 
 // Delete Review --Admin
 exports.deleteReview = catchAsyncErrors(async (req, res, next) => {
