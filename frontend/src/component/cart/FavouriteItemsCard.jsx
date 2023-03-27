@@ -21,7 +21,7 @@ const FavouriteItemsCard = ({item, deleteFavouriteItems}) => {
         </div>
 
         <div>
-            <span>{`$ ${item.price}`}</span> 
+            <span>{`₹ ${item.price}`}</span> 
         </div>
 
         <div>

@@ -74,7 +74,7 @@ const MyOrderDetails = ({ match }) => {
 
                 <div>
                   <p>Amount:</p>
-                  <span>$ {order.totalPrice && order.totalPrice}</span>
+                  <span>₹{order.totalPrice && order.totalPrice}</span>
                 </div>
               </div>
 
@@ -107,7 +107,7 @@ const MyOrderDetails = ({ match }) => {
                       </Link>{" "}
                       <span>
                         {item.quantity} X ${item.price} ={" "}
-                        <b>${item.price * item.quantity}</b>
+                        <b>₹{item.price * item.quantity}</b>
                       </span>
                     </div>
                   ))}
