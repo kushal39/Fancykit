@@ -36,9 +36,9 @@ const ProductCard = ({ product }) => {
                     paddingBottom: "0",
                   }}
                 >
-                  {product.offerPrice > 0 ? `$${product.offerPrice}` : ""}
+                  {product.offerPrice > 0 ? `₹${product.offerPrice}` : ""}
                 </h1>
-                <span className="p__Price">{`$${product.price}`}</span>
+                <span className="p__Price">{`₹${product.price}`}</span>
               </div>
             </div>
           </Link>
