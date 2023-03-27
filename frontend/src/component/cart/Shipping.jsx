@@ -28,8 +28,8 @@ const Shipping = ({ history }) => {
   const shippingSubmit = (e) => {
     e.preventDefault();
 
-    if (phoneNo.length < 11 || phoneNo.length > 11) {
-      toast.error("Phone Number should be 11digits");
+    if (phoneNo.length < 10 || phoneNo.length > 10) {
+      toast.error("Phone Number should be 10 digits");
       return;
     }
     dispatch(saveShippingInfo({ address, state, country, phoneNo }));

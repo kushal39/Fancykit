@@ -24,8 +24,6 @@ import ConfirmOrder from './component/cart/ConfirmOrder';
 import axios from 'axios';
 import { useState } from 'react';
 import Payment from './component/cart/Payment';
-import {loadStripe} from '@stripe/stripe-js';
-import {Elements} from '@stripe/react-stripe-js';
 import Success from './component/cart/Success';
 import MyOrder from "./component/user/MyOrder";
 import MyOrderDetails from "./component/user/MyOrderDetails";
@@ -50,13 +48,8 @@ function App() {
 
   const {isAuthenticated,user} = useSelector((state) =>state.user);
 
-  const [stripeApiKey, setStripeApiKey] = useState("");
 
-  async function getStripeApiKey() {
-    const { data } = await axios.get("/api/v2/stripeapikey");
-
-    setStripeApiKey(data.stripeApiKey);
-  }
+  
 
   useEffect(() => {
     WebFont.load({
@@ -67,7 +60,6 @@ function App() {
     
     Store.dispatch(loadUser());
     
-    getStripeApiKey();
 
   }, []);
   return (
@@ -75,12 +67,10 @@ function App() {
      <Router>
       {isAuthenticated && <UserData user={user} />}
 
-      {stripeApiKey && (
-        <Elements stripe={loadStripe(stripeApiKey)}>
-          <ProtectedRoute exact path="/process/payment" component={Payment} />
-        </Elements>
-      )}
+     
+    
        <Switch>
+       <Route exact path="/process/payment" component={Payment} />
          <Route exact path="/" component={Home} />
          <Route exact path="/product/:id" component={ProductDetails} />
          <Route exact path="/login" component={LoginSignup} />
@@ -116,7 +106,7 @@ function App() {
          <ProtectedRoute isAdmin={true} exact path="/admin/reviews" component={AllReviews} />
 
          <Route component={
-           window.location.pathname === "/process/payment" ? null : Notfound
+           window.location.pathname === "/process/paymenl" ? null : Notfound
            } />
        </Switch>
      </Router>

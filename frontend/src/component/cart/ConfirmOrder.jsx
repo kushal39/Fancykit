@@ -1,5 +1,4 @@
 import React from "react";
-import "./ConfirmOrder.css";
 import { useSelector } from "react-redux";
 import CheckoutSteps from "./CheckoutSteps";
 import MetaData from "../../more/Metadata";

@@ -8,7 +8,7 @@ import AccountTreeIcon from "@material-ui/icons/AccountTree";
 import DescriptionIcon from "@material-ui/icons/Description";
 import StorageIcon from "@material-ui/icons/Storage";
 import SpellcheckIcon from "@material-ui/icons/Spellcheck";
-import AttachMoneyIcon from "@material-ui/icons/AttachMoney";
+import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
 import DiscountIcon from "@material-ui/icons/LocalOffer";
 import SideBar from "./Sidebar";
 import { NEW_PRODUCT_RESET } from "../../constans/ProductConstans";
@@ -117,7 +117,7 @@ const CreateProduct = ({ history }) => {
             </div>
 
             <div>
-              <AttachMoneyIcon />
+            <CurrencyRupeeIcon />
               <input
                 type="number"
                 placeholder="Product Price"
