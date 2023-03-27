@@ -28,15 +28,16 @@ const userSchema = new mongoose.Schema({
     minlength: [8, "Password should be greater than 8 characters"],
     select: false,
   },
-  // avatar: {
-  //   required: [true, "Please choose Profile avatar"],
-  //   public_id: {
-  //     type: String,
-  //   },
-  //   url: {
-  //     type: String,
-  //   },
-  // },
+
+  avatar: {
+    required: [false, "Please choose Profile avatar"],
+    public_id: {
+      type: String,
+    },
+    url: {
+      type: String,
+    },
+  },
   role: {
     type: String,
     default: "user",

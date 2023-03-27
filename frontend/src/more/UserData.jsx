@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./UserOption.css";
 import { SpeedDial, SpeedDialAction } from "@material-ui/lab";
-import Draggable from 'react-draggable';
 import Backdrop from "@material-ui/core/Backdrop";
 import DashboardIcon from "@material-ui/icons/Dashboard";
 import PersonIcon from "@material-ui/icons/Person";
@@ -10,6 +9,7 @@ import ListAltIcon from "@material-ui/icons/ListAlt";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import Support from "@material-ui/icons/ReportProblem"
 import HeartIcon from "@material-ui/icons/FavoriteBorder";
+import HeartActiveIcon from "@material-ui/icons/Favorite";
 import HomeIcon from "@material-ui/icons/Home";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -24,7 +24,6 @@ const UserData = ({ user }) => {
 
   const [open, setOpen] = useState(false);
   const history = useHistory();
-  
   
   const scroolEffect = useRef(null);
 
@@ -106,7 +105,6 @@ const UserData = ({ user }) => {
   function report() {
     history.push("/support");
   }
-  
 
   function logoutUser() {
     dispatch(logout());
@@ -116,15 +114,25 @@ const UserData = ({ user }) => {
   return (
     <>
       <Backdrop open={open} style={{ zIndex: "10" }} />
-      <Draggable bounds="parent">
       <SpeedDial
         ariaLabel="SpeedDial tooltip example"
         onClose={() => setOpen(false)}
         onOpen={() => setOpen(true)}
+        style={{ zIndex: "11" }}
+        open={open}
         direction="down"
         className="speedDial"
-        icon={<PersonIcon />}
-        open={open}
+        useRef={scroolEffect}
+        icon={
+          <img
+            className="speedDialIcon"
+            src={user.avatar.url ? user.avatar.url : ("/profile.png")}
+            alt="Profile"
+            style={{
+              position:"fixed"
+            }}
+          />
+        }
       >
         {options.map((item) => (
           <SpeedDialAction
@@ -136,7 +144,6 @@ const UserData = ({ user }) => {
           />
         ))}
       </SpeedDial>
-    </Draggable>
       <ToastContainer 
         position="bottom-center"
         autoClose={5000}
