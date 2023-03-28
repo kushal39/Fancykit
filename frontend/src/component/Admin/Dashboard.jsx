@@ -45,16 +45,40 @@ const Dashboard = () => {
         });
 
     const lineState = {
-        labels: ["Initial Amount", "Amount Earned"],
-        datasets: [
+      labels: ["Day 1", "Day 2", "Day 3", "Day 4", "Day 5", "Day 6", "Day 7"],
+      datasets: [
           {
-            label: "TOTAL AMOUNT",
+            label: "TOTAL AMOUNT EARNED DAILY",
             backgroundColor: ["#3BB77E"],
             hoverBackgroundColor: ["#3BB77E"],
-            data: [0, totalAmount],
+            data: [0,1000,500,3000,3500,5000,6000, totalAmount],
           },
         ],
       };
+
+      const lineState1 = {
+        labels: ["Week 1", "Week 2", "Week 3", "Week 4"],
+        datasets: [
+            {
+              label: "TOTAL AMOUNT EARNED WEEKLY",
+              backgroundColor: ["#3BB77E"],
+              hoverBackgroundColor: ["#3BB77E"],
+              data: [0,7000,30000,25000, totalAmount],
+            },
+          ],
+        };
+
+        const lineState3 = {
+          labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+          datasets: [
+              {
+                label: "TOTAL AMOUNT EARNED MONTHLY",
+                backgroundColor: ["#3BB77E"],
+                hoverBackgroundColor: ["#3BB77E"],
+                data: [0,30000,40000,30000,12000,35000,17000,18000,50000,20000,36000, totalAmount],
+              },
+            ],
+          };
 
      const doughnutState = {
     labels: ["Out of Stock", "InStock"],
@@ -104,6 +128,15 @@ const Dashboard = () => {
           <div className="lineChart">
             <Line data={lineState} />
           </div>
+
+          <div className="lineChart">
+            <Line data={lineState1} />
+          </div>
+
+          <div className="lineChart">
+            <Line data={lineState3} />
+          </div>
+
   
           <div className="doughnutChart">
             <Doughnut data={doughnutState} />

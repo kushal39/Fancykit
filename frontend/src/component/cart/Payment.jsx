@@ -34,33 +34,35 @@ const Payment = ({ history }) => {
               state: shippingInfo.state,
               country: shippingInfo.country,
             },
+            
   };
+  console.log(cartItems)
 
   const submitHandler = async (e) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    payBtn.current.disabled = true;
+  payBtn.current.disabled = true;
 
-    try {
-
-      if (error) {
-        payBtn.current.disabled = false;
-
-        toast.error(error.message);
-      } else {
-        if (order) {
-          dispatch(createOrder(order));
-
-          history.push("/success");
-        } else {
-          toast.error("There's some issue while processing payment ");
-        }
-      }
-    } catch (error) {
+  try {
+    if (error) {
       payBtn.current.disabled = false;
-      toast.error(error.response.data.message);
+
+      toast.error(error.message);
+    } else {
+      if (order) {
+        console.log("order:", order);
+        dispatch(createOrder(order));
+
+        history.push("/success");
+      } else {
+        toast.error("There's some issue while processing payment ");
+      }
     }
-  };
+  } catch (error) {
+    payBtn.current.disabled = false;
+    toast.error(error.response.data.message);
+  }
+};
 
   useEffect(() => {
     if (error) {
