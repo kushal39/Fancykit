@@ -46,7 +46,6 @@ useEffect(() => {
                         fontFamily: "Poppins,sans-serif",opacity:"1",
                         fontSize:"2vmax"
                     }}>My Profile</h1>
-                    {/* <img src={user.avatar.url} alt={user.name} className="profile__img" /> */}
                     <img className="profile__img" src={user.avatar.url}
                 alt={user.name}/>
                     <Link to="/me/update/info" className="edit__profile" style={{margin:"0 0 0 -70px", color:"teal"}}>Edit Profile</Link>
