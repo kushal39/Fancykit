@@ -75,7 +75,7 @@ const Dashboard = () => {
                 label: "TOTAL AMOUNT EARNED MONTHLY",
                 backgroundColor: ["#3BB77E"],
                 hoverBackgroundColor: ["#3BB77E"],
-                data: [0,30000,40000,30000,12000,35000,17000,18000,50000,20000,36000, totalAmount],
+                data: [0,30000,40000,30000,12000,35000,17000,18000,50000,20000,36000,23000, totalAmount],
               },
             ],
           };

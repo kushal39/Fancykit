@@ -140,7 +140,6 @@ const UpdateOrder = ({ history, match }) => {
                   </div>
                 </div>
               </div>
-              {/*  */}
               <div
                 style={{
                   display: order.orderStatus === "Delivered" ? "none" : "block",
