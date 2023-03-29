@@ -2,7 +2,7 @@ import { React, useEffect, useRef, useState } from "react";
 import MailOutlineIcon from "@material-ui/icons/MailOutline";
 import LockOpenIcon from "@material-ui/icons/LockOpen";
 import FaceIcon from "@material-ui/icons/Face";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./LoginSignup.css";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "../../more/Loader";
@@ -75,7 +75,6 @@ const LoginSignup = ({ history, location }) => {
   };
   
   // const location = useLocation();
-  const redirect = location.search ? location.search.split("=")[1] : "/";
 
   useEffect(() => {
     if (error) {
@@ -86,7 +85,7 @@ const LoginSignup = ({ history, location }) => {
     if (isAuthenticated) {
       history.push("/");
     }
-  }, [dispatch, error, alert, history, isAuthenticated]);
+  }, [dispatch, error, history, isAuthenticated]);
 
   const switchTabs = (e, tab) => {
     if (tab === "login") {

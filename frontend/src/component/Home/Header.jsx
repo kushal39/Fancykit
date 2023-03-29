@@ -9,7 +9,6 @@ import logo from "../../Assets/icons/logo.jpeg";
 const Header = () => {
   const { cartItems } = useSelector((state) => state.cart);
   const { favouriteItems } = useSelector((state) => state.favourite);
-  const [isOpen, setIsOpen] = useState(false);
 
 
   const switcherTab = useRef(null);
@@ -146,9 +145,7 @@ const Header = () => {
             <Link to="/Products">
               <li>Products</li>
             </Link>
-            <Link to="/creator">
-              <li>Become A Seller</li>
-            </Link>
+            
             <Link to="/faq">
               <li>Users Rules</li>
             </Link>

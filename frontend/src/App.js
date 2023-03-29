@@ -21,13 +21,10 @@ import Cart from './component/cart/Cart';
 import Favourites from './component/cart/Favourites';
 import Shipping from './component/cart/Shipping';
 import ConfirmOrder from './component/cart/ConfirmOrder';
-import axios from 'axios';
-import { useState } from 'react';
 import Payment from './component/cart/Payment';
 import Success from './component/cart/Success';
 import MyOrder from "./component/user/MyOrder";
 import MyOrderDetails from "./component/user/MyOrderDetails";
-import CommingSoon from "./more/CommingSoon";
 import Rules from "./more/Rules";
 import Contact from "./more/Contact";
 import MoreOption from "./component/user/MoreOption"
@@ -81,7 +78,6 @@ function App() {
          <Route exact path="/support" component={Support} />
          <Route exact path="/cart" component={Cart} />
          <Route exact path="/favourites" component={Favourites} />
-         <Route exact path="/creator" component={CommingSoon} />
          <Route exact path="/faq" component={Rules} />
          <Route exact path="/contact" component={Contact} />
          <Route exact path="/more" component={MoreOption} />
