@@ -57,6 +57,7 @@
     flex-direction: column;
   }
   
+  
   .dashboardSummaryBox2 > a:first-child {
     background-color: black;
     color: rgb(255, 255, 255);
@@ -69,12 +70,13 @@
   
   .lineChart {
     width: 80%;
-    margin: auto;
+    margin-top: 100px;
   }
   
   .doughnutChart {
     width: 30vmax;
-    margin: auto;
+    margin-top: 100px;
+    margin-left: 300px;
   }
   
   @media screen and (max-width: 600px) {

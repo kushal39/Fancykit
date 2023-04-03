@@ -1,6 +1,5 @@
 import './App.css';
 import Home from "./component/Home/Home";
-import WebFont from "webfontloader";
 import { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import ProductDetails from './component/Products/ProductDetails';
@@ -49,11 +48,6 @@ function App() {
   
 
   useEffect(() => {
-    WebFont.load({
-      google: {
-        families: ["Roboto", "Droid Sans", "Chilanka"],
-      },
-    });
     
     Store.dispatch(loadUser());
     
