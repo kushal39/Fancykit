@@ -19,7 +19,7 @@ const userSchema = new mongoose.Schema({
   },
   mobile: {
     type: Number,
-    required: [true, "Please enter your mobile number"],
+    required: [false, "Please enter your mobile number"],
     unique: true,
   },
   password: {
@@ -30,12 +30,13 @@ const userSchema = new mongoose.Schema({
   },
 
   avatar: {
-    required: [false, "Please choose Profile avatar"],
     public_id: {
       type: String,
+      required: [true, "Please choose Profile avatar"]
     },
     url: {
       type: String,
+      required: [true, "Please choose Profile avatar"],
     },
   },
   role: {

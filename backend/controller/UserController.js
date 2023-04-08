@@ -95,9 +95,8 @@ exports.forgotPassword = catchAsyncErrors(async (req, res, next) => {
     validateBeforeSave: false,
   });
 
-  const resetPasswordUrl = `${req.protocol}://${req.get(
-    "host"
-  )}/password/reset/${resetToken}`;
+  const resetPasswordUrl = `
+    http://localhost:3000/password/reset/${resetToken}`;
 
   const message = `Your password reset token is :- \n\n ${resetPasswordUrl}`;
 
@@ -197,13 +196,23 @@ exports.updatePassword = catchAsyncErrors(async (req, res, next) => {
 });
 
 // Update User Profile
-exports.updateProfile = catchAsyncErrors(async(req,res,next) =>{
-    const newUserData = {
-        name: req.body.name,
-        email: req.body.email,
-    };
+exports.updateProfile = catchAsyncErrors(async (req, res, next) => {
+  const newUserData = {
+    name: req.body.name,
+    email: req.body.email,
+  };
 
-   if (req.body.avatar !== "") {
+  const user = await User.findByIdAndUpdate(
+    req.user.id,
+    newUserData,
+    {
+      new: true,
+      runValidators: true,
+      useFindAndModify: false,
+    }
+  );
+
+  if (req.body.avatar !== "") {
     const user = await User.findById(req.user.id);
 
     const imageId = user.avatar.public_id;
@@ -220,17 +229,24 @@ exports.updateProfile = catchAsyncErrors(async(req,res,next) =>{
       url: myCloud.secure_url,
     };
   }
-
-  const user = await User.findByIdAndUpdate(req.user.id, newUserData, {
-    new: true,
-    runValidator: true,
-    useFindAndModify: false,
-  });
+  
+  
+  
+  // Check if user was found and updated successfully
+  if (!user) {
+    return res.status(404).json({
+      success: false,
+      error: "User not found",
+    });
+  }
 
   res.status(200).json({
     success: true,
+    user: user,
   });
 });
+
+
 
 // Get All users ---Admin
 exports.getAllUsers = catchAsyncErrors(async (req,res,next) =>{

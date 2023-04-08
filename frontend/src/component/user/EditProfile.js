@@ -15,6 +15,7 @@ const EditProfile = ({history}) => {
   const { user } = useSelector(
     (state) => state.user
   );
+ 
 
   const {error, isUpdated, loading } = useSelector((state) => state.profile);
 
@@ -35,7 +36,7 @@ const EditProfile = ({history}) => {
     dispatch(updateProfile(myForm));
   };
 
-  console.log(avatar);
+  
 
   const updateProfileDataChange = (e) => {
     const reader = new FileReader();
@@ -65,7 +66,7 @@ const EditProfile = ({history}) => {
       toast.success("Profile updated successfully");
       dispatch(loadUser());
 
-      history.push("/me");
+      history.push("/");
        
       dispatch({
           type: UPDATE_PROFILE_RESET,

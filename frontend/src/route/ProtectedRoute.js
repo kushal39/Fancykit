@@ -3,12 +3,16 @@ import { useSelector } from 'react-redux'
 import { Redirect,Route } from 'react-router-dom';
 
 const ProtectedRoute = ({isAdmin, component: Component, ...rest}) => {
+    const token = localStorage.getItem('token');
+
 
     const {loading, isAuthenticated, user} = useSelector((state) => state.user);
 
     return (
        <>
-        {loading === false && (
+       
+        
+            {typeof token != 'undefined' ? (
             <Route 
             {...rest}
             render={
@@ -19,11 +23,15 @@ const ProtectedRoute = ({isAdmin, component: Component, ...rest}) => {
                     if(isAdmin === true && user.role !=="admin"){
                         return  <Redirect to="/login" />
                     }
-                    return <Component {...props} />
+                    return <Component {...props} />;
                 }
             }
             />
-        )}
+            ) : (
+                <Redirect to={'/'} />
+              )}
+        
+       
        </>
     )
 }
