@@ -79,8 +79,7 @@ export const register = (userData) => async (dispatch) => {
 export const loadUser = () => async (dispatch) =>{
   try {
       dispatch({type: LOAD_USER_REQUEST});
-           // eslint-disable-next-line
-      // const config = { headers:{ "Content-Type": "application/json"} };
+           
 
       const {data} = await axios.get(
           `/api/v2/me`);
