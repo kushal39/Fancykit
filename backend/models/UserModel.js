@@ -15,7 +15,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: [true, "Please enter your email"],
     validate: [validator.isEmail, "Please enter a valid email"],
-    unique: true,
+    unique: [true, "This Email  already exist"]
   },
   mobile: {
     type: Number,
