@@ -64,13 +64,10 @@ const Contact = () => {
             <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"></path>
           </svg>
           <strong>
-            Address: <span>7400 jashore sadar,Bangladesh</span>
+            Address: <span>44600 Kalopul,Bagmati,KTM,Nepal</span>
           </strong>
         </div>
-        {/* <p style={{
-            padding:"10px 0",
-            fontSize:"1.3vmax"
-        }}>The Live chat support option is comming soon....</p> */}
+       
         <h2
           style={{
             padding: "20px 0",
