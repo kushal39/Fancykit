@@ -14,8 +14,7 @@ https://nodejs.org/en/
 https://reactjs.org/
 ** NODEMAILER
 https://nodemailer.com/about/
-** EMAIL JS
-https://www.emailjs.com/
+
 
 ============================== To Run The Code ========================
 install node module using npm i in terminal in main folder and frontend folder
