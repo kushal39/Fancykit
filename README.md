@@ -1,4 +1,4 @@
-This is a MERN Stack Ecommerce website. I made it for Youtube tutorials. I think everyone will like it.
+This is a MERN Stack Ecommerce website.
 In this project I am using:
 
 M = MONGODB FOR DATABASE
@@ -17,9 +17,9 @@ https://nodemailer.com/about/
 ** EMAIL JS
 https://www.emailjs.com/
 
-============================== CONNECTS WITH ME ========================
-INSTAGRAM: https://www.instagram.com/dev_shahriar/
-YOUTUBE: https://www.youtube.com/
-FACEBOOK: https://www.facebook.com/shahriar.sajeeb.16
+============================== To Run The Code ========================
+install node module using npm i in terminal in main folder and frontend folder
 
+============================== CONNECTS WITH ME ========================
+Facebook: Kushal Poudel
 
